@@ -11,8 +11,10 @@
     "@types/react-dom": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-hook-form": "^7.43.9",
     "react-scripts": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,6 +35,7 @@
     ]
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.1",
     "openapi-typescript": "^6.2.4",
     "openapi-typescript-codegen": "^0.24.0"
   }
