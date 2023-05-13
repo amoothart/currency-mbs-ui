@@ -8,9 +8,7 @@ const pollForResult = async (holdingidentityshorthash: string, clientRequestId: 
             try {
                 const callResult = await FlowManagementApiService.getFlowHoldingidentityshorthashClientrequestid(holdingidentityshorthash, clientRequestId);
                 if (callResult.flowStatus == "COMPLETED") return resolve(callResult);
-            } catch (error) {
-                console.log('whoops!');
-            }
+            } catch (error) {}
             setTimeout(waitForCompletion, parseInt(process.env.REACT_APP_CORDA_REST_POLLING_DELAY!));
         })();
     });

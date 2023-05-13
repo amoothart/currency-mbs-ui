@@ -11,7 +11,7 @@ export class CertificatesApiService {
 
     /**
      * This method gets the certificate chain aliases for a cluster.
-     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.
+     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.
      * @returns string The cluster level certificates aliases in the usage.
      * @throws ApiError
      */
@@ -33,7 +33,7 @@ usage: string,
 
     /**
      * This method imports a certificate chain for a cluster.
-     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.
+     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.
      * @param formData requestBody
      * @returns any Success
      * @throws ApiError
@@ -65,7 +65,7 @@ certificate?: Array<Blob>;
 
     /**
      * This method gets the certificate chain in PEM format for a cluster.
-     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.
+     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.
      * @param alias The certificate chain unique alias.
      * @returns string The certificate in PEM format.
      * @throws ApiError
@@ -105,7 +105,7 @@ alias: string,
 
     /**
      * This method gets the certificate chain aliases for a virtual node.
-     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.
+     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.
      * @param holdingidentityid The certificate holding identity ID
      * @returns string The virtual node certificates aliases in the usage.
      * @throws ApiError
@@ -130,7 +130,7 @@ holdingidentityid: string | null,
 
     /**
      * This method imports a certificate chain for a virtual node.
-     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.
+     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.
      * @param holdingidentityid The certificate holding identity ID
      * @param formData requestBody
      * @returns any Success
@@ -165,7 +165,7 @@ certificate?: Array<Blob>;
 
     /**
      * This method gets the certificate chain in PEM format for a virtual node.
-     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.
+     * @param usage The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.
      * @param holdingidentityid The certificate holding identity ID
      * @param alias The certificate chain unique alias.
      * @returns string The certificate in PEM format.
@@ -193,7 +193,7 @@ alias: string,
 
     /**
      * This method enables you to generate a certificate signing request (CSR) for a tenant.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param keyid Identifier of the public key that will be included in the certificate
      * @param requestBody requestBody
      * @returns string The CSR in PEM format.

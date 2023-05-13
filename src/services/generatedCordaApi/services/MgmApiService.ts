@@ -6,6 +6,7 @@ import type { ApprovalRuleRequestParams } from '../models/ApprovalRuleRequestPar
 import type { PreAuthToken } from '../models/PreAuthToken';
 import type { PreAuthTokenRequest } from '../models/PreAuthTokenRequest';
 import type { RestRegistrationRequestStatus } from '../models/RestRegistrationRequestStatus';
+import type { SuspensionActivationParameters } from '../models/SuspensionActivationParameters';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -21,6 +22,31 @@ export class MgmApiService {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/mgm/getprotocolversion',
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+            },
+        });
+    }
+
+    /**
+     * @param holdingidentityshorthash The holding identity ID of the MGM of the membership group
+     * @param requestBody requestBody
+     * @returns any Success
+     * @throws ApiError
+     */
+    public static postMgmHoldingidentityshorthashActivate(
+holdingidentityshorthash: string,
+requestBody: SuspensionActivationParameters,
+): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/mgm/{holdingidentityshorthash}/activate',
+            path: {
+                'holdingidentityshorthash': holdingidentityshorthash,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 401: `Unauthorized`,
                 403: `Forbidden`,
@@ -434,6 +460,31 @@ viewhistoric?: boolean,
                 'requestsubjectx500name': requestsubjectx500Name,
                 'viewhistoric': viewhistoric,
             },
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+            },
+        });
+    }
+
+    /**
+     * @param holdingidentityshorthash The holding identity ID of the MGM of the membership group
+     * @param requestBody requestBody
+     * @returns any Success
+     * @throws ApiError
+     */
+    public static postMgmHoldingidentityshorthashSuspend(
+holdingidentityshorthash: string,
+requestBody: SuspensionActivationParameters,
+): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/mgm/{holdingidentityshorthash}/suspend',
+            path: {
+                'holdingidentityshorthash': holdingidentityshorthash,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 401: `Unauthorized`,
                 403: `Forbidden`,

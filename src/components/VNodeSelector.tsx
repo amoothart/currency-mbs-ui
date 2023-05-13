@@ -6,36 +6,27 @@ import InputLabel from "@mui/material/InputLabel";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import { VDataContext } from "./VNodeContext";
+import { useVnodeContext } from "./VNodeContext";
 import { ShortNodeInfo, getVnodes } from "../services/niceCordaApi";
 import Button from "@mui/material/Button";
 
 export default function NodeSelector() {
 
-  //fetch vNodes
-  const [ availableNodes, setAvailableNodes ] = useState<ShortNodeInfo[]>([]);
-  useEffect( () => {
-    (async () => {
-      const newNodes = (await getVnodes()).sort((a, b) => a.x500Name.localeCompare(b.x500Name));
-      setAvailableNodes(newNodes);
-    })();
-  }, []);
-  
-  const vNodeMenuItems = availableNodes.map( it =>
+  const { activeNode, setActiveNode, nodes } = useVnodeContext();
+
+  const vNodeMenuItems = nodes.map( it =>
     <MenuItem key={it.shortHash} value={it.shortHash}>{it.x500Name.split(',').shift()}, App: {it.cpiName}</MenuItem>
   );
 
-  const { vNode, setvNode } = useContext(VDataContext);
-
   const handleNodeChange = (event: SelectChangeEvent) => {
-    setvNode(
-      availableNodes.find( node => node.shortHash == event.target.value)!
+    setActiveNode(
+      nodes.find( node => node.shortHash == event.target.value)!
     );
   };
 
-  const handleResetButton = () => setvNode(null);
+  const handleResetButton = () => setActiveNode(null);
 
-  if (vNode) return ( // vNode is selected, show active node and reset button
+  if (activeNode) return ( // vNode is selected, show active node and reset button
       <Box
         sx={{
           display: "flex",
@@ -44,7 +35,7 @@ export default function NodeSelector() {
         }}
       >
         <Typography variant="body1" color="text.secondary">
-          Connected as {vNode.x500Name}
+          Connected as {activeNode.x500Name}
         </Typography>
         <Button onClick={handleResetButton} sx={{ml: 1}}>Change</Button>
       </Box>

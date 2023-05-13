@@ -2,6 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { HostedIdentitySessionKeyAndCertificate } from './HostedIdentitySessionKeyAndCertificate';
+
 /**
  *
  * Request object which contains properties for P2P messaging including:
@@ -12,7 +14,6 @@
  */
 export type HostedIdentitySetupRequest = {
     p2pTlsCertificateChainAlias: string;
-    sessionCertificateChainAlias?: string | null;
-    sessionKeyId?: string | null;
+    sessionKeysAndCertificates: Array<HostedIdentitySessionKeyAndCertificate>;
     useClusterLevelTlsCertificateAndKey?: boolean | null;
 };

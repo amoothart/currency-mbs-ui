@@ -26,7 +26,7 @@ export class HsmApiService {
 
     /**
      * This method enables you to assign a soft HSM to the tenant for the specified category.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param category The category of the HSM; can be the value 'ACCOUNTS', 'CI', 'LEDGER', 'NOTARY', 'SESSION_INIT', 'TLS', or 'JWT_KEY'
      * @returns HsmAssociationInfo
  * The HSM association details including:
@@ -59,7 +59,7 @@ category: string,
 
     /**
      * This method retrieves information on the HSM of the specified category assigned to the tenant.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param category The category of the HSM; can be the value 'ACCOUNTS', 'CI', 'LEDGER', 'NOTARY', 'SESSION_INIT', 'TLS', or 'JWT_KEY'
      * @returns any
  * The HSM association details including:
@@ -92,7 +92,7 @@ category: string,
 
     /**
      * This method enables you to assign a hardware-backed HSM to the tenant for the specified category.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param category The category of the HSM; can be the value 'ACCOUNTS', 'CI', 'LEDGER', 'NOTARY', 'SESSION_INIT', 'TLS', or 'JWT_KEY'
      * @returns HsmAssociationInfo
  * The HSM association details including:

@@ -1,8 +1,8 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Corda REST API",
-    "description" : "All the endpoints for publicly visible Open API calls",
+    "title" : "REST",
+    "description" : "Exposing REST interfaces as OpenAPI WebServices.",
     "version" : "1"
   },
   "servers" : [ {
@@ -72,11 +72,11 @@
         "parameters" : [ {
           "name" : "usage",
           "in" : "path",
-          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
             "nullable" : false,
             "example" : "string"
           }
@@ -113,11 +113,11 @@
         "parameters" : [ {
           "name" : "usage",
           "in" : "path",
-          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
             "nullable" : false,
             "example" : "string"
           }
@@ -173,11 +173,11 @@
         "parameters" : [ {
           "name" : "usage",
           "in" : "path",
-          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
             "nullable" : false,
             "example" : "string"
           }
@@ -252,11 +252,11 @@
         "parameters" : [ {
           "name" : "usage",
           "in" : "path",
-          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
             "nullable" : false,
             "example" : "string"
           }
@@ -304,11 +304,11 @@
         "parameters" : [ {
           "name" : "usage",
           "in" : "path",
-          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
             "nullable" : false,
             "example" : "string"
           }
@@ -375,11 +375,11 @@
         "parameters" : [ {
           "name" : "usage",
           "in" : "path",
-          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+          "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rpc-api-tls' for a TLS certificate to be used in HTTP RPC API communication, or 'code-signer' for a certificate of the code signing service.",
+            "description" : "The certificate usage. Can be either 'p2p-tls' for a TLS certificate to be used in P2P communication, 'p2p-session' for a session certificate to be used in P2P communication, 'rest-tls' for a TLS certificate to be used in REST communication, or 'code-signer' for a certificate of the code signing service.",
             "nullable" : false,
             "example" : "string"
           }
@@ -436,11 +436,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1059,11 +1059,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1107,11 +1107,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1156,11 +1156,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1233,11 +1233,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1390,11 +1390,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1460,11 +1460,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1514,11 +1514,11 @@
         "parameters" : [ {
           "name" : "tenantid",
           "in" : "path",
-          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+          "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
           "required" : true,
           "schema" : {
             "type" : "string",
-            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API",
+            "description" : "Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST",
             "nullable" : false,
             "example" : "string"
           }
@@ -1772,6 +1772,20 @@
             "nullable" : true,
             "example" : "string"
           }
+        }, {
+          "name" : "statuses",
+          "in" : "query",
+          "description" : "List of statuses (\"ACTIVE\", \"SUSPENDED\") to filter members by. Only an MGM can view suspended members.",
+          "required" : false,
+          "schema" : {
+            "uniqueItems" : false,
+            "type" : "array",
+            "nullable" : false,
+            "items" : {
+              "type" : "string",
+              "example" : "string"
+            }
+          }
         } ],
         "responses" : {
           "200" : {
@@ -1884,7 +1898,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "\n            The registration status information, including:\n            registrationId: the registration request ID\n            registrationSent: the date and the when the registration progress started; \n                value of null indicated that registration has not started yet\n            registrationUpdated: the date and the when the registration has been last updated    \n            registrationStatus: the status of the registration request; \n                possible values are \"NEW\", \"PENDING_MEMBER_VERIFICATION\", \"PENDING_APPROVAL_FLOW\", \n                \"PENDING_MANUAL_APPROVAL\", \"PENDING_AUTO_APPROVAL\", \"DECLINED\", or \"APPROVED\"\n            memberInfoSubmitted: the properties submitted to MGM during the registration     \n        ",
+            "description" : "\n            The registration status information, including:\n            registrationId: the registration request ID\n            registrationSent: the date and the when the registration progress started; \n                value of null indicated that registration has not started yet\n            registrationUpdated: the date and the when the registration has been last updated    \n            registrationStatus: the status of the registration request;\n                possible values are \"NEW\", \"SENT_TO_MGM\", \"RECEIVED_BY_MGM\", \"PENDING_MEMBER_VERIFICATION\", \"PENDING_MANUAL_APPROVAL\",\n                \"PENDING_AUTO_APPROVAL\", \"DECLINED\", \"INVALID\", \"FAILED\" or \"APPROVED\"\n            memberInfoSubmitted: the properties submitted to MGM during the registration     \n        ",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -1983,7 +1997,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "\n            The registration status information, including:\n            registrationId: the registration request ID\n            registrationSent: the date and the when the registration progress started; \n                value of null indicated that registration has not started yet\n            registrationUpdated: the date and the when the registration has been last updated    \n            registrationStatus: the status of the registration request; \n                possible values are \"NEW\", \"PENDING_MEMBER_VERIFICATION\", \"PENDING_APPROVAL_FLOW\", \n                \"PENDING_MANUAL_APPROVAL\", \"PENDING_AUTO_APPROVAL\", \"DECLINED\", or \"APPROVED\"\n            memberInfoSubmitted: the properties submitted to MGM during the registration     \n        ",
+            "description" : "\n            The registration status information, including:\n            registrationId: the registration request ID\n            registrationSent: the date and the when the registration progress started; \n                value of null indicated that registration has not started yet\n            registrationUpdated: the date and the when the registration has been last updated    \n            registrationStatus: the status of the registration request;\n                possible values are \"NEW\", \"SENT_TO_MGM\", \"RECEIVED_BY_MGM\", \"PENDING_MEMBER_VERIFICATION\", \"PENDING_MANUAL_APPROVAL\",\n                \"PENDING_AUTO_APPROVAL\", \"DECLINED\", \"INVALID\", \"FAILED\" or \"APPROVED\"\n            memberInfoSubmitted: the properties submitted to MGM during the registration     \n        ",
             "content" : {
               "application/json" : {
                 "schema" : {
@@ -2020,6 +2034,47 @@
                 }
               }
             }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        }
+      }
+    },
+    "/mgm/{holdingidentityshorthash}/activate" : {
+      "post" : {
+        "tags" : [ "MGM API" ],
+        "description" : "",
+        "operationId" : "post_mgm__holdingidentityshorthash__activate",
+        "parameters" : [ {
+          "name" : "holdingidentityshorthash",
+          "in" : "path",
+          "description" : "The holding identity ID of the MGM of the membership group",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "description" : "The holding identity ID of the MGM of the membership group",
+            "nullable" : false,
+            "example" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "requestBody",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SuspensionActivationParameters"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success"
           },
           "401" : {
             "description" : "Unauthorized"
@@ -2785,6 +2840,47 @@
                 }
               }
             }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        }
+      }
+    },
+    "/mgm/{holdingidentityshorthash}/suspend" : {
+      "post" : {
+        "tags" : [ "MGM API" ],
+        "description" : "",
+        "operationId" : "post_mgm__holdingidentityshorthash__suspend",
+        "parameters" : [ {
+          "name" : "holdingidentityshorthash",
+          "in" : "path",
+          "description" : "The holding identity ID of the MGM of the membership group",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "description" : "The holding identity ID of the MGM of the membership group",
+            "nullable" : false,
+            "example" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "requestBody",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SuspensionActivationParameters"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success"
           },
           "401" : {
             "description" : "Unauthorized"
@@ -3583,7 +3679,7 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/VirtualNodeRequest"
+                "$ref" : "#/components/schemas/CreateVirtualNodeRequest"
               }
             }
           },
@@ -3595,7 +3691,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/VirtualNodeInfo"
+                  "$ref" : "#/components/schemas/AsyncResponse"
                 }
               }
             }
@@ -3661,7 +3757,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/VirtualNodeOperationStatuses"
+                  "$ref" : "#/components/schemas/AsyncOperationStatus"
                 }
               }
             }
@@ -3849,6 +3945,48 @@
         },
         "description" : "The approval rule information including the regular expression associated with the rule, and an optional label describing the rule"
       },
+      "AsyncOperationStatus" : {
+        "required" : [ "lastUpdatedTimestamp", "operation", "requestId", "status" ],
+        "type" : "object",
+        "properties" : {
+          "errorReason" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "lastUpdatedTimestamp" : {
+            "type" : "string",
+            "format" : "datetime",
+            "nullable" : false,
+            "example" : "2022-06-24T10:15:30Z"
+          },
+          "operation" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "processingStage" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "requestId" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "resourceId" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "status" : {
+            "nullable" : false,
+            "example" : "IN_PROGRESS",
+            "enum" : [ "ACCEPTED", "IN_PROGRESS", "SUCCEEDED", "FAILED", "ABORTED" ]
+          }
+        }
+      },
       "AsyncResponse" : {
         "required" : [ "requestId" ],
         "type" : "object",
@@ -3959,6 +4097,25 @@
           "signerSummaryHash" : {
             "type" : "string",
             "nullable" : true,
+            "example" : "string"
+          }
+        }
+      },
+      "CpiIdentifier_1" : {
+        "required" : [ "name", "signerSummaryHash", "version" ],
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "signerSummaryHash" : {
+            "$ref" : "#/components/schemas/SecureHash"
+          },
+          "version" : {
+            "type" : "string",
+            "nullable" : false,
             "example" : "string"
           }
         }
@@ -4169,6 +4326,53 @@
         },
         "description" : "\n                Details of the user to be created with the following parameters:\n                enabled: If true, the user account is enabled; false, the account is disabled\n                fullName: The full name for the new user\n                initialPassword: The initial password for the new user; \n                    the value can be null for Single Sign On (SSO) users\n                loginName: The login name for the new user\n                parentGroup: An optional identifier of the user group for the new user to be included;\n                    value of null means that the user will belong to the root group\n                passwordExpiry: The date and time when the password should expire, specified as an ISO-8601 string;\n                    value of null means that the password does not expire"
       },
+      "CreateVirtualNodeRequest" : {
+        "required" : [ "cpiFileChecksum", "x500Name" ],
+        "type" : "object",
+        "properties" : {
+          "cpiFileChecksum" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "cryptoDdlConnection" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "cryptoDmlConnection" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "uniquenessDdlConnection" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "uniquenessDmlConnection" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "vaultDdlConnection" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "vaultDmlConnection" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "x500Name" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          }
+        },
+        "description" : "Details of the virtual node to be created"
+      },
       "FlowStateErrorResponse" : {
         "required" : [ "message", "type" ],
         "type" : "object",
@@ -4341,14 +4545,14 @@
           }
         }
       },
-      "HostedIdentitySetupRequest" : {
-        "required" : [ "p2pTlsCertificateChainAlias" ],
+      "HostedIdentitySessionKeyAndCertificate" : {
+        "required" : [ "preferred", "sessionKeyId" ],
         "type" : "object",
         "properties" : {
-          "p2pTlsCertificateChainAlias" : {
-            "type" : "string",
+          "preferred" : {
+            "type" : "boolean",
             "nullable" : false,
-            "example" : "string"
+            "example" : true
           },
           "sessionCertificateChainAlias" : {
             "type" : "string",
@@ -4357,8 +4561,27 @@
           },
           "sessionKeyId" : {
             "type" : "string",
-            "nullable" : true,
+            "nullable" : false,
             "example" : "string"
+          }
+        }
+      },
+      "HostedIdentitySetupRequest" : {
+        "required" : [ "p2pTlsCertificateChainAlias", "sessionKeysAndCertificates" ],
+        "type" : "object",
+        "properties" : {
+          "p2pTlsCertificateChainAlias" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "sessionKeysAndCertificates" : {
+            "uniqueItems" : false,
+            "type" : "array",
+            "nullable" : false,
+            "items" : {
+              "$ref" : "#/components/schemas/HostedIdentitySessionKeyAndCertificate"
+            }
           },
           "useClusterLevelTlsCertificateAndKey" : {
             "type" : "boolean",
@@ -4464,14 +4687,9 @@
         }
       },
       "MemberRegistrationRequest" : {
-        "required" : [ "action", "context" ],
+        "required" : [ "context" ],
         "type" : "object",
         "properties" : {
-          "action" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          },
           "context" : {
             "type" : "object",
             "additionalProperties" : {
@@ -4482,7 +4700,7 @@
             "example" : "No example available for this type"
           }
         },
-        "description" : "The request sent during registration which contains the requested registration action (e.g. 'requestJoin') along with a context map containing data required to initiate the registration process."
+        "description" : "The request sent during registration which contains the requested registration context map containing data required to initiate the registration process."
       },
       "PermissionAssociationResponseType" : {
         "required" : [ "createdTimestamp", "id" ],
@@ -4755,13 +4973,19 @@
           "registrationStatus" : {
             "nullable" : false,
             "example" : "SENT_TO_MGM",
-            "enum" : [ "NEW", "SENT_TO_MGM", "RECEIVED_BY_MGM", "PENDING_MEMBER_VERIFICATION", "PENDING_APPROVAL_FLOW", "PENDING_MANUAL_APPROVAL", "PENDING_AUTO_APPROVAL", "DECLINED", "INVALID", "APPROVED" ]
+            "enum" : [ "NEW", "SENT_TO_MGM", "RECEIVED_BY_MGM", "PENDING_MEMBER_VERIFICATION", "PENDING_MANUAL_APPROVAL", "PENDING_AUTO_APPROVAL", "DECLINED", "INVALID", "FAILED", "APPROVED" ]
           },
           "registrationUpdated" : {
             "type" : "string",
             "format" : "datetime",
             "nullable" : true,
             "example" : "2022-06-24T10:15:30Z"
+          },
+          "serial" : {
+            "type" : "integer",
+            "format" : "int64",
+            "nullable" : true,
+            "example" : 0
           }
         }
       },
@@ -4823,6 +5047,70 @@
           }
         }
       },
+      "Route" : {
+        "required" : [ "active", "channelName", "externalReceiveTopicName", "inactiveResponseType" ],
+        "type" : "object",
+        "properties" : {
+          "active" : {
+            "type" : "boolean",
+            "nullable" : false,
+            "example" : true
+          },
+          "channelName" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "externalReceiveTopicName" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          },
+          "inactiveResponseType" : {
+            "nullable" : false,
+            "example" : "IGNORE",
+            "enum" : [ "ERROR", "IGNORE" ]
+          }
+        }
+      },
+      "RouteConfiguration" : {
+        "required" : [ "currentRoutes", "previousVersionRoutes" ],
+        "type" : "object",
+        "properties" : {
+          "currentRoutes" : {
+            "$ref" : "#/components/schemas/Routes"
+          },
+          "previousVersionRoutes" : {
+            "uniqueItems" : false,
+            "type" : "array",
+            "nullable" : false,
+            "items" : {
+              "$ref" : "#/components/schemas/Routes"
+            }
+          }
+        }
+      },
+      "Routes" : {
+        "required" : [ "cpiIdentifier", "routes" ],
+        "type" : "object",
+        "properties" : {
+          "cpiIdentifier" : {
+            "$ref" : "#/components/schemas/CpiIdentifier_1"
+          },
+          "routes" : {
+            "uniqueItems" : false,
+            "type" : "array",
+            "nullable" : false,
+            "items" : {
+              "$ref" : "#/components/schemas/Route"
+            }
+          }
+        }
+      },
+      "SecureHash" : {
+        "type" : "object",
+        "properties" : { }
+      },
       "StartFlowParameters" : {
         "required" : [ "clientRequestId", "flowClassName", "requestBody" ],
         "type" : "object",
@@ -4873,6 +5161,29 @@
             }
           }
         }
+      },
+      "SuspensionActivationParameters" : {
+        "required" : [ "x500Name" ],
+        "type" : "object",
+        "properties" : {
+          "reason" : {
+            "type" : "string",
+            "nullable" : true,
+            "example" : "string"
+          },
+          "serialNumber" : {
+            "type" : "integer",
+            "format" : "int64",
+            "nullable" : true,
+            "example" : 0
+          },
+          "x500Name" : {
+            "type" : "string",
+            "nullable" : false,
+            "example" : "string"
+          }
+        },
+        "description" : "Parameters for suspending or activating a member."
       },
       "UpdateConfigParameters" : {
         "required" : [ "config", "schemaVersion", "section", "version" ],
@@ -5056,6 +5367,9 @@
             "nullable" : false,
             "example" : "string"
           },
+          "externalMessagingRouteConfiguration" : {
+            "$ref" : "#/components/schemas/RouteConfiguration"
+          },
           "flowOperationalStatus" : {
             "nullable" : false,
             "example" : "INACTIVE",
@@ -5110,116 +5424,6 @@
             "example" : "string"
           }
         }
-      },
-      "VirtualNodeOperationStatus" : {
-        "required" : [ "latestUpdateTimestamp", "operationData", "requestId", "requestTimestamp", "state" ],
-        "type" : "object",
-        "properties" : {
-          "errors" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "heartbeatTimestamp" : {
-            "type" : "string",
-            "format" : "datetime",
-            "nullable" : true,
-            "example" : "2022-06-24T10:15:30Z"
-          },
-          "latestUpdateTimestamp" : {
-            "type" : "string",
-            "format" : "datetime",
-            "nullable" : false,
-            "example" : "2022-06-24T10:15:30Z"
-          },
-          "operationData" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          },
-          "requestId" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          },
-          "requestTimestamp" : {
-            "type" : "string",
-            "format" : "datetime",
-            "nullable" : false,
-            "example" : "2022-06-24T10:15:30Z"
-          },
-          "state" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          }
-        }
-      },
-      "VirtualNodeOperationStatuses" : {
-        "required" : [ "requestId", "response" ],
-        "type" : "object",
-        "properties" : {
-          "requestId" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          },
-          "response" : {
-            "uniqueItems" : false,
-            "type" : "array",
-            "nullable" : false,
-            "items" : {
-              "$ref" : "#/components/schemas/VirtualNodeOperationStatus"
-            }
-          }
-        }
-      },
-      "VirtualNodeRequest" : {
-        "required" : [ "cpiFileChecksum", "x500Name" ],
-        "type" : "object",
-        "properties" : {
-          "cpiFileChecksum" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          },
-          "cryptoDdlConnection" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "cryptoDmlConnection" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "uniquenessDdlConnection" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "uniquenessDmlConnection" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "vaultDdlConnection" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "vaultDmlConnection" : {
-            "type" : "string",
-            "nullable" : true,
-            "example" : "string"
-          },
-          "x500Name" : {
-            "type" : "string",
-            "nullable" : false,
-            "example" : "string"
-          }
-        },
-        "description" : "Details of the virtual node to be created"
       },
       "VirtualNodes" : {
         "required" : [ "virtualNodes" ],

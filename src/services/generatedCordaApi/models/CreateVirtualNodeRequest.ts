@@ -5,7 +5,7 @@
 /**
  * Details of the virtual node to be created
  */
-export type VirtualNodeRequest = {
+export type CreateVirtualNodeRequest = {
     cpiFileChecksum: string;
     cryptoDdlConnection?: string | null;
     cryptoDmlConnection?: string | null;

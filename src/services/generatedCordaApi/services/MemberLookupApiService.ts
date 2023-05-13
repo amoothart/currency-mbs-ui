@@ -33,6 +33,7 @@ export class MemberLookupApiService {
      * @param l Locality (L) attribute of the X.500 name to filter members by
      * @param st State (ST) attribute of the X.500 name to filter members by
      * @param c Country (C) attribute of the X.500 name to filter members by
+     * @param statuses List of statuses ("ACTIVE", "SUSPENDED") to filter members by. Only an MGM can view suspended members.
      * @returns RestMemberInfoList Success
      * @throws ApiError
      */
@@ -44,6 +45,7 @@ ou?: string | null,
 l?: string | null,
 st?: string | null,
 c?: string | null,
+statuses?: Array<string>,
 ): CancelablePromise<RestMemberInfoList> {
         return __request(OpenAPI, {
             method: 'GET',
@@ -58,6 +60,7 @@ c?: string | null,
                 'l': l,
                 'st': st,
                 'c': c,
+                'statuses': statuses,
             },
             errors: {
                 401: `Unauthorized`,

@@ -4,11 +4,13 @@
 
 import type { CpiIdentifier } from './CpiIdentifier';
 import type { HoldingIdentity } from './HoldingIdentity';
+import type { RouteConfiguration } from './RouteConfiguration';
 
 export type VirtualNodeInfo = {
     cpiIdentifier: CpiIdentifier;
     cryptoDdlConnectionId?: string | null;
     cryptoDmlConnectionId: string;
+    externalMessagingRouteConfiguration?: RouteConfiguration;
     flowOperationalStatus: VirtualNodeInfo.flowOperationalStatus;
     flowP2pOperationalStatus: VirtualNodeInfo.flowP2pOperationalStatus;
     flowStartOperationalStatus: VirtualNodeInfo.flowStartOperationalStatus;

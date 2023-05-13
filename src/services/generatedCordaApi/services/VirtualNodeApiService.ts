@@ -1,11 +1,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { AsyncOperationStatus } from '../models/AsyncOperationStatus';
 import type { AsyncResponse } from '../models/AsyncResponse';
 import type { ChangeVirtualNodeStateResponse } from '../models/ChangeVirtualNodeStateResponse';
+import type { CreateVirtualNodeRequest } from '../models/CreateVirtualNodeRequest';
 import type { VirtualNodeInfo } from '../models/VirtualNodeInfo';
-import type { VirtualNodeOperationStatuses } from '../models/VirtualNodeOperationStatuses';
-import type { VirtualNodeRequest } from '../models/VirtualNodeRequest';
 import type { VirtualNodes } from '../models/VirtualNodes';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
@@ -33,12 +33,12 @@ export class VirtualNodeApiService {
     /**
      * This method creates a new virtual node.
      * @param requestBody requestBody
-     * @returns VirtualNodeInfo The details of the created virtual node.
+     * @returns AsyncResponse The details of the created virtual node.
      * @throws ApiError
      */
     public static postVirtualnode(
-requestBody: VirtualNodeRequest,
-): CancelablePromise<VirtualNodeInfo> {
+requestBody: CreateVirtualNodeRequest,
+): CancelablePromise<AsyncResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/virtualnode',
@@ -69,12 +69,12 @@ requestBody: VirtualNodeRequest,
     /**
      * This method returns the VirtualNodeOperationStatus for a given operation request id.
      * @param requestid The requestId for the operation; obtained during node creation/upgrade
-     * @returns VirtualNodeOperationStatuses VirtualNodeOperationStatus for the specified virtual node.
+     * @returns AsyncOperationStatus VirtualNodeOperationStatus for the specified virtual node.
      * @throws ApiError
      */
     public static getVirtualnodeStatusRequestid(
 requestid: string,
-): CancelablePromise<VirtualNodeOperationStatuses> {
+): CancelablePromise<AsyncOperationStatus> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/virtualnode/status/{requestid}',

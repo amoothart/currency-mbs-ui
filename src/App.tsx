@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import NodeSelector from './components/VNodeSelector';
 import { VNodeContext } from './components/VNodeContext';
-import { ShortNodeInfo } from './services/niceCordaApi/getVnodes';
 import { OpenAPI } from './services/generatedCordaApi';
-import { TradeContainer } from './components/TradeContainer';
+import { TradeDialogProvider } from './components/TradeDialogProvider';
+import TradeGrid from './components/TradeGrid';
 
 OpenAPI.BASE = process.env.REACT_APP_CORDA_REST_URL!;
 OpenAPI.USERNAME = process.env.REACT_APP_CORDA_REST_USER!;
@@ -22,12 +21,12 @@ function Copyright() {
 
 export default function App() {
 
-  const [vNode, setvNode] = React.useState<ShortNodeInfo | null>(null);
-
   return (
     <Container maxWidth="md">
       <VNodeContext>
-        <TradeContainer />
+        <TradeDialogProvider>
+          <TradeGrid />
+        </TradeDialogProvider>
       </VNodeContext>
       <Copyright />
     </Container>

@@ -36,8 +36,8 @@ export class MemberRegistrationApiService {
  * value of null indicated that registration has not started yet
  * registrationUpdated: the date and the when the registration has been last updated
  * registrationStatus: the status of the registration request;
- * possible values are "NEW", "PENDING_MEMBER_VERIFICATION", "PENDING_APPROVAL_FLOW",
- * "PENDING_MANUAL_APPROVAL", "PENDING_AUTO_APPROVAL", "DECLINED", or "APPROVED"
+ * possible values are "NEW", "SENT_TO_MGM", "RECEIVED_BY_MGM", "PENDING_MEMBER_VERIFICATION", "PENDING_MANUAL_APPROVAL",
+ * "PENDING_AUTO_APPROVAL", "DECLINED", "INVALID", "FAILED" or "APPROVED"
  * memberInfoSubmitted: the properties submitted to MGM during the registration
  * 
      * @throws ApiError
@@ -103,8 +103,8 @@ requestBody: MemberRegistrationRequest,
  * value of null indicated that registration has not started yet
  * registrationUpdated: the date and the when the registration has been last updated
  * registrationStatus: the status of the registration request;
- * possible values are "NEW", "PENDING_MEMBER_VERIFICATION", "PENDING_APPROVAL_FLOW",
- * "PENDING_MANUAL_APPROVAL", "PENDING_AUTO_APPROVAL", "DECLINED", or "APPROVED"
+ * possible values are "NEW", "SENT_TO_MGM", "RECEIVED_BY_MGM", "PENDING_MEMBER_VERIFICATION", "PENDING_MANUAL_APPROVAL",
+ * "PENDING_AUTO_APPROVAL", "DECLINED", "INVALID", "FAILED" or "APPROVED"
  * memberInfoSubmitted: the properties submitted to MGM during the registration
  * 
      * @throws ApiError

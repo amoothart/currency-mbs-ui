@@ -27,7 +27,7 @@ export class KeysManagementApiService {
 
     /**
      * This method retrieves information about a list of key pairs belonging to a tenant.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param skip The response paging information, number of records to skip
      * @param take The response paging information, that is, the number of records to return. The actual number returned may be less than requested.
      * @param orderby Specifies how to order the results. Can be one of 'NONE', 'TIMESTAMP', 'CATEGORY', 'SCHEME_CODE_NAME', 'ALIAS', 'MASTER_KEY_ALIAS', 'EXTERNAL_ID', 'ID', 'TIMESTAMP_DESC', 'CATEGORY_DESC', 'SCHEME_CODE_NAME_DESC', 'ALIAS_DESC', 'MASTER_KEY_ALIAS_DESC', 'EXTERNAL_ID_DESC', 'ID_DESC'.
@@ -81,7 +81,7 @@ id?: Array<string> | null,
 
     /**
      * This method generates a new key pair for a tenant.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param alias The alias under which the new key pair will be stored
      * @param hsmcategory Category of the HSM which handles the key pairs. Can be one of 'ACCOUNTS', 'CI', 'LEDGER', 'NOTARY', 'SESSION_INIT', 'TLS', 'JWT_KEY'.
      * @param scheme The key's scheme describing which type of the key pair to generate. For example, 'CORDA.RSA', 'CORDA.ECDSA.SECP256K1', 'CORDA.ECDSA.SECP256R1', 'CORDA.EDDSA.ED25519', 'CORDA.SPHINCS-256'.
@@ -112,7 +112,7 @@ scheme: string,
 
     /**
      * This method retrieves a list of supported key schemes for a specified tenant and HSM category.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param hsmcategory The category of the HSM. Can be the value 'ACCOUNTS', 'CI', 'LEDGER', 'NOTARY', 'SESSION_INIT', 'TLS', or 'JWT_KEY'
      * @returns string The list of scheme codes which are supported by the associated HSM integration
      * @throws ApiError
@@ -137,7 +137,7 @@ hsmcategory: string,
 
     /**
      * This method retrieves a tenant's public key in PEM format.
-     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rpc-api' for a cluster-level tenant of the HTTP RPC API
+     * @param tenantid Can either be a holding identity ID, the value 'p2p' for a cluster-level tenant of the P2P services, or the value 'rest' for a cluster-level tenant of the REST
      * @param keyid Identifier of the public key to be retrieved
      * @returns string The public key in PEM format
      * @throws ApiError

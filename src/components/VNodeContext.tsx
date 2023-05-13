@@ -1,26 +1,46 @@
-import { PropsWithChildren, createContext } from "react";
-import { ShortNodeInfo } from "../services/niceCordaApi/getVnodes";
+import { PropsWithChildren, createContext, useEffect } from "react";
+import { ShortNodeInfo, getVnodes } from "../services/niceCordaApi/getVnodes";
 import React from "react";
 import NodeSelector from "./VNodeSelector";
 
-export interface VNodeContext {
-    vNode: ShortNodeInfo | null;
-    setvNode: (vNode: ShortNodeInfo | null) => void;
+interface VNodeContext {
+    activeNode: ShortNodeInfo | null;
+    setActiveNode: (vNode: ShortNodeInfo | null) => void;
+    nodes: ShortNodeInfo[];
+    setNodes: (vNodes: ShortNodeInfo[]) => void;
 }
 
-export const VDataContext = createContext<VNodeContext>({
-    vNode: null,
-    setvNode: () => {},
+const VDataContext = createContext<VNodeContext>({
+    activeNode: null,
+    setActiveNode: () => {},
+    nodes: [],
+    setNodes: () => {},
 });
+
+export const useVnodeContext = () => React.useContext(VDataContext);
 
 export const VNodeContext = ({ children } : PropsWithChildren) => {
 
-    const [vNode, setvNode] = React.useState<ShortNodeInfo | null>(null);
-  
+    const [activeNode, setActiveNode] = React.useState<ShortNodeInfo | null>(null);
+    const [nodes, setNodes] = React.useState<ShortNodeInfo[]>([]);
+
+    useEffect( () => {
+        (async () => {
+          const fetchedNodes = (await getVnodes()).sort((a, b) => a.x500Name.localeCompare(b.x500Name));
+          setNodes(fetchedNodes);
+        })();
+      }, []);
+
     return (
-      <VDataContext.Provider value={{vNode, setvNode}}>
+      <VDataContext.Provider 
+      value={ {
+        activeNode: activeNode,
+        setActiveNode: setActiveNode,
+        nodes: nodes,
+        setNodes: setNodes,
+        } } >
           <NodeSelector />
-          {children}
+          {activeNode ? children : null}
       </VDataContext.Provider>
     );
   }
