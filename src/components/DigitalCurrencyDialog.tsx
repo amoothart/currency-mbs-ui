@@ -7,34 +7,34 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { TradeConfDTO, addTrade } from '../services/tradeService';
+import { DigitalCurrencyDTO, addDigitalCurrency } from '../services/digitalCurrenciesService';
 import { Controller, DefaultValues, SubmitHandler, useForm } from "react-hook-form"; 
 import { useVnodeContext } from './VNodeContext';
-import { useTradeDialog } from './TradeDialogProvider';
+import { useDigitalCurrenciesDialog } from './DigitalCurrenciesDialogProvider';
 
-export interface TradeDialogOptions {
-    variant?: 'addTrade' | 'viewTrade' | 'editTrade';
-    activeTrade?: TradeConfDTO;
+export interface DigitalCurrencyDialogOptions {
+    variant?: 'addDigitalCurrency' | 'viewDigitalCurrency' | 'editDigitalCurrency';
+    activeDigitalCurrency?: DigitalCurrencyDTO;
 };
 
 export type FormValues = {
-    tradeId: string;
+    digitalCurrencyId: string;
     details: string;
     counterParty: string;
 };
 
-interface TradeDialogProps extends TradeDialogOptions {
+interface DigitalCurrencyDialogProps extends DigitalCurrencyDialogOptions {
   open: boolean;
 };
 
-export function TradeDialog(props: TradeDialogProps) {
+export function DigitalCurrencyDialog(props: DigitalCurrencyDialogProps) {
 
   const { handleSubmit, control } = useForm<FormValues>({});
-  const { close } = useTradeDialog();
+  const { close } = useDigitalCurrenciesDialog();
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    if (props.variant === 'addTrade') {
-      addTrade(activeNode!.shortHash, data.counterParty, data.tradeId, data.details);
+    if (props.variant === 'addDigitalCurrency') {
+      addDigitalCurrency(activeNode!.shortHash, data.counterParty, data.digitalCurrencyId, data.details);
     }
     close();
   };
@@ -48,10 +48,10 @@ export function TradeDialog(props: TradeDialogProps) {
   return (
       <Dialog open={props.open} onClose={close}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <DialogTitle>New trade confirmation</DialogTitle>
+        <DialogTitle>New digital currency confirmation</DialogTitle>
         <DialogContent>
           <DialogContentText mb={3}>
-            To share a new trade confirmation with your counterparty, please enter the confirmation details in below form.
+            To issue new digital currency to a bank, please enter details below.
           </DialogContentText>
           <FormControl fullWidth>
           <InputLabel id="cparty-select-label">Counterparty</InputLabel>
@@ -74,13 +74,13 @@ export function TradeDialog(props: TradeDialogProps) {
                 <TextField
                 {...field}
                 margin="dense"
-                label="Trade Identifier"
+                label="Quantity"
                 type="text"
                 fullWidth
                 variant="standard"
               />
               )}
-              name="tradeId"
+              name="digitalCurrencyId"
               control={control}
             />
             <Controller
@@ -88,7 +88,7 @@ export function TradeDialog(props: TradeDialogProps) {
                 <TextField
                 {...field}
                 margin="dense"
-                label="Trade Details"
+                label="Holder"
                 type="text"
                 fullWidth
                 variant="standard"
@@ -101,7 +101,7 @@ export function TradeDialog(props: TradeDialogProps) {
             </DialogContent>
         <DialogActions>
           <Button onClick={close}>Cancel</Button>
-          <Button type={'submit'} >Add Trade</Button>
+          <Button type={'submit'} >Add Digital Currency</Button>
         </DialogActions>
         </form>
       </Dialog>

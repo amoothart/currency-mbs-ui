@@ -3,8 +3,8 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { VNodeContext } from './components/VNodeContext';
 import { OpenAPI } from './services/generatedCordaApi';
-import { TradeDialogProvider } from './components/TradeDialogProvider';
-import TradeGrid from './components/TradeGrid';
+import { DigitalCurrenciesDialogProvider } from './components/DigitalCurrenciesDialogProvider';
+import DigitalCurrencyGrid from './components/DigitalCurrencyGrid';
 
 OpenAPI.BASE = process.env.REACT_APP_CORDA_REST_URL!;
 OpenAPI.USERNAME = process.env.REACT_APP_CORDA_REST_USER!;
@@ -24,9 +24,9 @@ export default function App() {
   return (
     <Container maxWidth="md">
       <VNodeContext>
-        <TradeDialogProvider>
-          <TradeGrid />
-        </TradeDialogProvider>
+        <DigitalCurrenciesDialogProvider>
+          <DigitalCurrencyGrid />
+        </DigitalCurrenciesDialogProvider>
       </VNodeContext>
       <Copyright />
     </Container>
