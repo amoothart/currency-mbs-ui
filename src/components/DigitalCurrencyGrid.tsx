@@ -83,16 +83,16 @@ export default function DigitalCurrencyGrid() {
           Issue new Digital Currency
         </Button>
         <Box mt={2} style={{ width: '100%' }}>
-          <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: DigitalCurrenciesGridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => "foo123"} />
+          <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: DigitalCurrenciesGridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => t.digitalCurrencyId} />
         </Box>
       </Box>
   );
 
   async function refreshDigitalCurrencies() {
     const digitalCurrency = activeNode ? await getDigitalCurrencies(activeNode!.shortHash) : [];
-    digitalCurrency.map((obj, index) => {
-      return { ...obj, digitalCurrencyId: index + 1 };
+    const digitalCurrencyWithIds: DigitalCurrencyDTO[] = digitalCurrency.map((obj, index) => {
+      return { ...obj, digitalCurrencyId: (index + 1).toString() };
     });
-    setDigitalCurrenciesData(digitalCurrency);
+    setDigitalCurrenciesData(digitalCurrencyWithIds);
   }
 }

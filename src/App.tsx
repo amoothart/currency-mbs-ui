@@ -13,7 +13,7 @@ OpenAPI.PASSWORD = process.env.REACT_APP_CORDA_REST_PASSWORD!;
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center" mt={2}>
-      {'Copyright © Nils '}
+      {'Copyright © Bundles of Fun '}
       {new Date().getFullYear()}.
     </Typography>
   );
