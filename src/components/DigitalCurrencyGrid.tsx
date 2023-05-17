@@ -4,6 +4,7 @@ import { Box, Button, Chip } from '@mui/material';
 import { DigitalCurrencyDTO, getDigitalCurrencies } from '../services/digitalCurrenciesService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
+import Typography from '@mui/material/Typography';
 import {DigitalCurrenciesDialogProvider, useDigitalCurrenciesDialog} from './DigitalCurrenciesDialogProvider';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
@@ -80,6 +81,9 @@ export default function DigitalCurrencyGrid() {
           <Button variant="outlined" onClick={ handleAddDialog }>
             Issue new Digital Currency
           </Button>
+          <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
+            Digital Currencies
+          </Typography>
           <Box mt={2} style={{ width: '100%' }}>
             <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: GridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => t.digitalCurrencyId} />
           </Box>

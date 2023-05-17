@@ -3,10 +3,10 @@
   "version": "5.0.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "latest",
+    "@mui/material": "^5.13.1",
     "@mui/x-data-grid": "^6.3.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",

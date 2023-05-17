@@ -4,6 +4,7 @@ import { Box, Button, Chip } from '@mui/material';
 import { MortgageDTO, getMortgages } from '../services/mortgageService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
+import Typography from '@mui/material/Typography';
 import {MortgageDialogProvider, useMortgageDialog} from './MortgageDialogProvider';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
@@ -40,12 +41,12 @@ export default function MortgageGrid() {
 
   // row formatting
   const mortgageGridColumnDef: GridColDef[] = [
-    { field: 'digitalCurrencyId', headerName: 'Currency Id', minWidth: 80, flex: 1, },
-    { field: 'holder', headerName: 'Holder', minWidth: 120, flex: 1,
+    { field: 'mortgageId', headerName: 'Mortgage Id', minWidth: 80, flex: 1, },
+    { field: 'owner', headerName: 'Owner', minWidth: 120, flex: 1,
       valueGetter: (params) => getSimpleName(params.value)
     },
-    { field: 'quantity', headerName: 'Quantity', minWidth: 120, flex: 1, },
-    { field: 'status', headerName: 'Status', minWidth: 100, flex: 1,
+    { field: 'address', headerName: 'Address', minWidth: 120, flex: 1, },
+    { field: 'interestRate', headerName: 'Interest Rate', minWidth: 100, flex: 1,
       renderCell: (params) => getNiceStatus(params.value),
     },
     { field: 'actions', type: 'actions', headerName: 'Actions', minWidth: 80, flex: 1,
@@ -80,6 +81,9 @@ export default function MortgageGrid() {
           <Button variant="outlined" onClick={ handleAddDialog }>
             Issue new Digital Currency
           </Button>
+          <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
+            Mortgages
+          </Typography>
           <Box mt={2} style={{ width: '100%' }}>
             <DataGrid disableRowSelectionOnClick
                       slots={{ noRowsOverlay: GridNoRowsOverlay }}
@@ -93,10 +97,10 @@ export default function MortgageGrid() {
   );
 
   async function refreshMortgage() {
-    // const mortgages = activeNode ? await getMortgages(activeNode!.shortHash) : [];
-    // const mortgagesWithIds: MortgageDTO[] = mortgages.map((obj, index) => {
-    //   return { ...obj, mortgageId: (index + 1).toString() };
-    // });
-    // setMortgageData(mortgagesWithIds);
+    const mortgages = activeNode ? await getMortgages(activeNode!.shortHash) : [];
+    const mortgagesWithIds: MortgageDTO[] = mortgages.map((obj, index) => {
+      return { ...obj, mortgageId: (index + 1).toString() };
+    });
+    setMortgageData(mortgagesWithIds);
   }
 }
