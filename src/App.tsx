@@ -5,6 +5,9 @@ import { VNodeContext } from './components/VNodeContext';
 import { OpenAPI } from './services/generatedCordaApi';
 import { DigitalCurrenciesDialogProvider } from './components/DigitalCurrenciesDialogProvider';
 import DigitalCurrencyGrid from './components/DigitalCurrencyGrid';
+import {useState} from "react";
+import MortgageGrid from "./components/MortgageGrid";
+import {Button} from "@mui/material";
 
 OpenAPI.BASE = process.env.REACT_APP_CORDA_REST_URL!;
 OpenAPI.USERNAME = process.env.REACT_APP_CORDA_REST_USER!;
@@ -21,12 +24,19 @@ function Copyright() {
 
 export default function App() {
 
-  return (
+    const [activeGridView, setActiveGridView] = useState('gridView1');
+
+    const handleGridViewSwitch = () => {
+        setActiveGridView(activeGridView === 'gridView1' ? 'gridView2' : 'gridView1');
+    };
+
+    return (
     <Container maxWidth="md">
       <VNodeContext>
-        <DigitalCurrenciesDialogProvider>
-          <DigitalCurrencyGrid />
-        </DigitalCurrenciesDialogProvider>
+          <Button variant="outlined" onClick={ handleGridViewSwitch }>
+              Switch View
+          </Button>
+          {activeGridView === 'gridView1' ? <DigitalCurrencyGrid /> : <MortgageGrid />}
       </VNodeContext>
       <Copyright />
     </Container>

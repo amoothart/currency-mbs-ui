@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridActionsCellItem, GridColDef, GridRenderCellParams, GridRowId } from '@mui/x-data-grid';
 import { Box, Button, Chip } from '@mui/material';
-import { DigitalCurrencyDTO, getDigitalCurrencies } from '../services/digitalCurrenciesService';
+import { MortgageDTO, getMortgages } from '../services/mortgageService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
-import {DigitalCurrenciesDialogProvider, useDigitalCurrenciesDialog} from './DigitalCurrenciesDialogProvider';
+import {MortgageDialogProvider, useMortgageDialog} from './MortgageDialogProvider';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
 
-export default function DigitalCurrencyGrid() {
+export default function MortgageGrid() {
 
-  const [digitalCurrenciesData, setDigitalCurrenciesData] = useState<DigitalCurrencyDTO[]>([]);
+  const [mortgageData, setMortgageData] = useState<MortgageDTO[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { activeNode } = useVnodeContext();
-  const { openDialog } = useDigitalCurrenciesDialog();
+  const { openDialog } = useMortgageDialog();
 
   //reload table with animation after vNode change
   useEffect( () => {
         (async () => {
           setIsLoading(true);
-          await refreshDigitalCurrencies();
+          await refreshMortgage();
           setIsLoading(false);
         })();
-        return () => setDigitalCurrenciesData([]);
+        return () => setMortgageData([]);
       }, [activeNode]
   );
 
   //reload table without animation every 5 secs 
   useEffect(() => {
-    const interval = setInterval(refreshDigitalCurrencies , 5000);
+    const interval = setInterval(refreshMortgage , 5000);
     return () => clearInterval(interval);
   }, []);
 
   const handleAddDialog = () => {
     openDialog({
-      variant: 'addDigitalCurrency',
+      variant: 'addMortgage',
     });
   }
 
   // row formatting
-  const digitalCurrenciesGridColumnDef: GridColDef[] = [
+  const mortgageGridColumnDef: GridColDef[] = [
     { field: 'digitalCurrencyId', headerName: 'Currency Id', minWidth: 80, flex: 1, },
     { field: 'holder', headerName: 'Holder', minWidth: 120, flex: 1,
       valueGetter: (params) => getSimpleName(params.value)
@@ -75,23 +75,28 @@ export default function DigitalCurrencyGrid() {
   }
 
   return (
-      <DigitalCurrenciesDialogProvider>
+      <MortgageDialogProvider>
         <Box mt={2} >
           <Button variant="outlined" onClick={ handleAddDialog }>
             Issue new Digital Currency
           </Button>
           <Box mt={2} style={{ width: '100%' }}>
-            <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: GridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => t.digitalCurrencyId} />
+            <DataGrid disableRowSelectionOnClick
+                      slots={{ noRowsOverlay: GridNoRowsOverlay }}
+                      loading={isLoading} autoHeight
+                      rows={mortgageData}
+                      columns={mortgageGridColumnDef}
+                      getRowId={(t) => t.mortgageId} />
           </Box>
         </Box>
-      </DigitalCurrenciesDialogProvider>
+      </MortgageDialogProvider>
   );
 
-  async function refreshDigitalCurrencies() {
-    const digitalCurrency = activeNode ? await getDigitalCurrencies(activeNode!.shortHash) : [];
-    const digitalCurrencyWithIds: DigitalCurrencyDTO[] = digitalCurrency.map((obj, index) => {
-      return { ...obj, digitalCurrencyId: (index + 1).toString() };
-    });
-    setDigitalCurrenciesData(digitalCurrencyWithIds);
+  async function refreshMortgage() {
+    // const mortgages = activeNode ? await getMortgages(activeNode!.shortHash) : [];
+    // const mortgagesWithIds: MortgageDTO[] = mortgages.map((obj, index) => {
+    //   return { ...obj, mortgageId: (index + 1).toString() };
+    // });
+    // setMortgageData(mortgagesWithIds);
   }
 }

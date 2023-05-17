@@ -24,7 +24,7 @@ const StyledGridOverlay = styled('div')(({ theme }) => ({
   },
 }));
 
-export function DigitalCurrenciesGridNoRowsOverlay() {
+export function GridNoRowsOverlay() {
   return (
     <StyledGridOverlay>
       <svg
@@ -54,7 +54,7 @@ export function DigitalCurrenciesGridNoRowsOverlay() {
           </g>
         </g>
       </svg>
-      <Box sx={{ m: 1 }} color="text.secondary">No Digital Currency Records found</Box>
+      <Box sx={{ m: 1 }} color="text.secondary">No Records found</Box>
     </StyledGridOverlay>
   );
 }
