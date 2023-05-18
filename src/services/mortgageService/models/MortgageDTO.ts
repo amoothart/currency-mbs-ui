@@ -7,5 +7,6 @@ export type MortgageDTO = {
     loanToValue: string,
     condition: string,
     creditQualityRating: string,
-    listingDetails: string
+    listingDetails: string,
+    bundled: string
 };

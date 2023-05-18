@@ -41,13 +41,18 @@ export default function MortgageGrid() {
     },
     { field: 'address', headerName: 'Address', minWidth: 120, flex: 1, },
     { field: 'interestRate', headerName: 'Interest Rate', minWidth: 120, flex: 1, },
-    { field: 'fixedInterestRate', headerName: 'Fixed Interest Rate?', minWidth: 120, flex: 1, },
+    { field: 'fixedInterestRate', headerName: 'Fixed Interest Rate?', minWidth: 120, flex: 1,
+      valueGetter: (params) => params.value == "true" ? "Yes" : "No"
+    },
     { field: 'loanToValue', headerName: 'Loan To Value', minWidth: 120, flex: 1, },
     { field: 'condition', headerName: 'Condition', minWidth: 120, flex: 1, },
     { field: 'creditQualityRating', headerName: 'Credit Quality Rating', minWidth: 100, flex: 1,
       renderCell: (params) => getNiceStatus(params.value),
     },
     { field: 'listingDetails', headerName: 'Listing Details', minWidth: 120, flex: 1, },
+    { field: 'bundled', headerName: 'Bundled?', minWidth: 120, flex: 1,
+      valueGetter: (params) => params.value == "true" ? "Yes" : "No"
+    },
     { field: 'actions', type: 'actions', headerName: 'Actions', minWidth: 80, flex: 1,
       getActions: (params) => {
         const mortgageId = params.row.mortgageId;
