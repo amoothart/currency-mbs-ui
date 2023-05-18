@@ -5,7 +5,6 @@ import { MortgageDTO, getMortgages } from '../services/mortgageService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
-import {MortgageDialogProvider, useMortgageDialog} from './MortgageDialogProvider';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -14,7 +13,6 @@ export default function MortgageGrid() {
   const [mortgageData, setMortgageData] = useState<MortgageDTO[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { activeNode } = useVnodeContext();
-  const { openDialog } = useMortgageDialog();
 
   //reload table with animation after vNode change
   useEffect( () => {
@@ -32,12 +30,6 @@ export default function MortgageGrid() {
     const interval = setInterval(refreshMortgage , 5000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleAddDialog = () => {
-    openDialog({
-      variant: 'addMortgage',
-    });
-  }
 
   // row formatting
   const mortgageGridColumnDef: GridColDef[] = [
@@ -76,24 +68,22 @@ export default function MortgageGrid() {
   }
 
   return (
-      <MortgageDialogProvider>
-        <Box mt={2} >
-          <Button variant="outlined" onClick={ handleAddDialog }>
-            Issue new Digital Currency
-          </Button>
-          <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
-            Mortgages
-          </Typography>
-          <Box mt={2} style={{ width: '100%' }}>
-            <DataGrid disableRowSelectionOnClick
-                      slots={{ noRowsOverlay: GridNoRowsOverlay }}
-                      loading={isLoading} autoHeight
-                      rows={mortgageData}
-                      columns={mortgageGridColumnDef}
-                      getRowId={(t) => t.mortgageId} />
-          </Box>
-        </Box>
-      </MortgageDialogProvider>
+    <Box mt={2} >
+      <Button variant="outlined">
+        Issue new Digital Currency
+      </Button>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
+        Mortgages
+      </Typography>
+      <Box mt={2} style={{ width: '100%' }}>
+        <DataGrid disableRowSelectionOnClick
+                  slots={{ noRowsOverlay: GridNoRowsOverlay }}
+                  loading={isLoading} autoHeight
+                  rows={mortgageData}
+                  columns={mortgageGridColumnDef}
+                  getRowId={(t) => t.mortgageId} />
+      </Box>
+    </Box>
   );
 
   async function refreshMortgage() {

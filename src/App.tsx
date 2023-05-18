@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { VNodeContext } from './components/VNodeContext';
 import { OpenAPI } from './services/generatedCordaApi';
-import { DigitalCurrenciesDialogProvider } from './components/DigitalCurrenciesDialogProvider';
 import DigitalCurrencyGrid from './components/DigitalCurrencyGrid';
 import {useState} from "react";
 import MortgageGrid from "./components/MortgageGrid";

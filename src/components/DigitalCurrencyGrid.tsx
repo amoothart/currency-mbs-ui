@@ -5,7 +5,6 @@ import { DigitalCurrencyDTO, getDigitalCurrencies } from '../services/digitalCur
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
-import {DigitalCurrenciesDialogProvider, useDigitalCurrenciesDialog} from './DigitalCurrenciesDialogProvider';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -14,7 +13,6 @@ export default function DigitalCurrencyGrid() {
   const [digitalCurrenciesData, setDigitalCurrenciesData] = useState<DigitalCurrencyDTO[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { activeNode } = useVnodeContext();
-  const { openDialog } = useDigitalCurrenciesDialog();
 
   //reload table with animation after vNode change
   useEffect( () => {
@@ -32,12 +30,6 @@ export default function DigitalCurrencyGrid() {
     const interval = setInterval(refreshDigitalCurrencies , 5000);
     return () => clearInterval(interval);
   }, []);
-
-  const handleAddDialog = () => {
-    openDialog({
-      variant: 'addDigitalCurrency',
-    });
-  }
 
   // row formatting
   const digitalCurrenciesGridColumnDef: GridColDef[] = [
@@ -76,19 +68,17 @@ export default function DigitalCurrencyGrid() {
   }
 
   return (
-      <DigitalCurrenciesDialogProvider>
-        <Box mt={2} >
-          <Button variant="outlined" onClick={ handleAddDialog }>
-            Issue new Digital Currency
-          </Button>
-          <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
-            Digital Currencies
-          </Typography>
-          <Box mt={2} style={{ width: '100%' }}>
-            <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: GridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => t.digitalCurrencyId} />
-          </Box>
-        </Box>
-      </DigitalCurrenciesDialogProvider>
+    <Box mt={2} >
+      <Button variant="outlined">
+        Issue new Digital Currency
+      </Button>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
+        Digital Currencies
+      </Typography>
+      <Box mt={2} style={{ width: '100%' }}>
+        <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: GridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => t.digitalCurrencyId} />
+      </Box>
+    </Box>
   );
 
   async function refreshDigitalCurrencies() {
