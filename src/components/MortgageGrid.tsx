@@ -5,9 +5,9 @@ import { MortgageDTO, getMortgages } from '../services/mortgageService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
-import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
 import IssueMortgageDialog from "./IssueMortgageDialog";
+import SellMortgageDialog from "./SellMortgageDialog";
 
 export default function MortgageGrid() {
 
@@ -49,18 +49,17 @@ export default function MortgageGrid() {
     },
     { field: 'listingDetails', headerName: 'Listing Details', minWidth: 120, flex: 1, },
     { field: 'actions', type: 'actions', headerName: 'Actions', minWidth: 80, flex: 1,
-      getActions: (params) => [
-        <GridActionsCellItem
-            icon={<PageviewIcon />}
-            label="View"
-            onClick={ () => alert('Not implemented') }
-        />,
-        <GridActionsCellItem
-            icon={<EditIcon />}
-            label="Edit"
-            onClick={ () => alert('Not implemented') }
-        />,
-      ],
+      getActions: (params) => {
+        const mortgageId = params.row.mortgageId;
+        return [
+          <SellMortgageDialog mortgageId={mortgageId}/>,
+          <GridActionsCellItem
+              icon={<EditIcon />}
+              label="Edit"
+              onClick={ () => alert('Not implemented') }
+          />
+        ]
+      },
     },
   ];
 
@@ -91,7 +90,8 @@ export default function MortgageGrid() {
                   loading={isLoading} autoHeight
                   rows={mortgageData}
                   columns={mortgageGridColumnDef}
-                  getRowId={(t) => t.mortgageId} />
+                  getRowId={(t) => t.mortgageId}
+                  />
       </Box>
     </Box>
   );
@@ -99,7 +99,7 @@ export default function MortgageGrid() {
   async function refreshMortgage() {
     const mortgages = activeNode ? await getMortgages(activeNode!.shortHash) : [];
     const mortgagesWithIds: MortgageDTO[] = mortgages.map((obj, index) => {
-      return { ...obj, mortgageId: (index + 1).toString() };
+      return { ...obj };
     });
     setMortgageData(mortgagesWithIds);
   }
