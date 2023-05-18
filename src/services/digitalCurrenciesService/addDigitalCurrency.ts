@@ -3,12 +3,11 @@ import { DigitalCurrencyDTO } from './models/DigitalCurrencyDTO';
 
 const flowClassName = 'com.r3.developers.csdetemplate.digitalcurrency.workflows.IssueDigitalCurrencyFlow';
 
-export const addDigitalCurrency = async (holdingidentityshorthash: string, counterpartyName: string, digitalCurrencyId: string, details: string) : Promise<DigitalCurrencyDTO[]> => {
+export const addDigitalCurrency = async (issuingIdentityShorthash: string, holder: string, quantity: string) : Promise<DigitalCurrencyDTO[]> => {
     const requestBody = {
-        counterpartyName: counterpartyName,
-        digitalCurrencyId: digitalCurrencyId,
-        details: details,
+        holder: holder,
+        quantity: quantity,
     }
-    const digitalCurrencyCallResult = await callFlowSync(holdingidentityshorthash, flowClassName, requestBody);
+    const digitalCurrencyCallResult = await callFlowSync(issuingIdentityShorthash, flowClassName, requestBody);
     return JSON.parse(digitalCurrencyCallResult.flowResult!);
 }

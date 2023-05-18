@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridActionsCellItem, GridColDef, GridRenderCellParams, GridRowId } from '@mui/x-data-grid';
-import { Box, Button, Chip } from '@mui/material';
-import { Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
+import { Box, Chip } from '@mui/material';
 import { DigitalCurrencyDTO, getDigitalCurrencies } from '../services/digitalCurrenciesService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
+import IssueDigitalCurrencyDialog from "./IssueDigitalCurrencyDialog";
 
 export default function DigitalCurrencyGrid() {
 
@@ -75,22 +75,7 @@ export default function DigitalCurrencyGrid() {
 
   return (
     <Box mt={2} >
-      <div>
-        <Button variant="outlined" onClick={() => setOpen(true)}>
-          Issue new Digital Currency
-        </Button>
-        {open && (
-            <Dialog open={open} onClose={handleClose}>
-              <DialogTitle>Issue Digital Currency</DialogTitle>
-              <DialogContent>
-                <p>This is the dialog content for issuing digital currency.</p>
-              </DialogContent>
-              <DialogActions>
-                <Button variant="outlined" onClick={handleClose}>Close</Button>
-              </DialogActions>
-            </Dialog>
-        )}
-      </div>
+      <IssueDigitalCurrencyDialog/>
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
         Digital Currencies
       </Typography>
