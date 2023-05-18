@@ -15,8 +15,10 @@ const pollForResult = async (holdingidentityshorthash: string, clientRequestId: 
 };
 
 export const callFlowSync = async (holdingidentityshorthash: string, flowClassName: string, requestBody: (string | number | boolean | any[] | Record<string, any>)) : Promise<FlowStatusResponse> => {
+    const trimmedClassName = flowClassName.slice(flowClassName.lastIndexOf(".") + 1);
+
     const flowParams : StartFlowParameters = {
-        clientRequestId: uuidv4(),
+        clientRequestId: trimmedClassName + uuidv4(),
         flowClassName: flowClassName,
         requestBody: requestBody
     }

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { DataGrid, GridActionsCellItem, GridColDef, GridRenderCellParams, GridRowId } from '@mui/x-data-grid';
-import { Box, Button, Chip } from '@mui/material';
-import { Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
+import { DataGrid, GridActionsCellItem, GridColDef } from '@mui/x-data-grid';
+import { Box, Chip } from '@mui/material';
 import { MortgageDTO, getMortgages } from '../services/mortgageService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
+import IssueMortgageDialog from "./IssueMortgageDialog";
 
 export default function MortgageGrid() {
 
@@ -40,9 +40,14 @@ export default function MortgageGrid() {
       valueGetter: (params) => getSimpleName(params.value)
     },
     { field: 'address', headerName: 'Address', minWidth: 120, flex: 1, },
-    { field: 'interestRate', headerName: 'Interest Rate', minWidth: 100, flex: 1,
+    { field: 'interestRate', headerName: 'Interest Rate', minWidth: 120, flex: 1, },
+    { field: 'fixedInterestRate', headerName: 'Fixed Interest Rate?', minWidth: 120, flex: 1, },
+    { field: 'loanToValue', headerName: 'Loan To Value', minWidth: 120, flex: 1, },
+    { field: 'condition', headerName: 'Condition', minWidth: 120, flex: 1, },
+    { field: 'creditQualityRating', headerName: 'Credit Quality Rating', minWidth: 100, flex: 1,
       renderCell: (params) => getNiceStatus(params.value),
     },
+    { field: 'listingDetails', headerName: 'Listing Details', minWidth: 120, flex: 1, },
     { field: 'actions', type: 'actions', headerName: 'Actions', minWidth: 80, flex: 1,
       getActions: (params) => [
         <GridActionsCellItem
@@ -64,9 +69,10 @@ export default function MortgageGrid() {
   }
 
   const getNiceStatus = (status: String) => {
-    if (status == 'SHARED') return (
-        <Chip label="shared" color="success" />
-    );
+    if (status == 'AAA' || status == 'AA' || status == 'A')
+      return (<Chip label={status} color="success" />);
+    else
+      return (<Chip label={status} color="warning" />);
   }
 
   const handleClose = () => {
@@ -75,20 +81,7 @@ export default function MortgageGrid() {
 
   return (
     <Box mt={2} >
-      <div>
-        <Button variant="outlined" onClick={() => setOpen(true)}>
-          Issue new Mortgage
-        </Button>
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Issue Mortgage</DialogTitle>
-          <DialogContent>
-            <p>This is the dialog content for issuing a new mortgage.</p>
-          </DialogContent>
-          <DialogActions>
-            <Button variant="outlined" onClick={handleClose}>Close</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
+      <IssueMortgageDialog/>
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
         Mortgages
       </Typography>

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TextField } from "@mui/material";
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { Box, Button } from '@mui/material';
-import { Controller, DefaultValues, SubmitHandler, useForm } from "react-hook-form";
+import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import {useVnodeContext} from "./VNodeContext";
 import {addDigitalCurrency} from "../services/digitalCurrenciesService";
 
@@ -13,8 +12,6 @@ export type FormValues = {
 
 const DigitalCurrencyForm = () => {
     const [open, setOpen] = useState(false);
-    const [quantity, setQuantity] = useState("");
-    const [holder, setHolder] = useState("");
 
     const handleClose = () => {
         setOpen(false);
@@ -24,11 +21,11 @@ const DigitalCurrencyForm = () => {
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
         console.log("onSubmit: ", activeNode!.shortHash, data.quantity, data.holder);
-        addDigitalCurrency(activeNode!.shortHash, data.holder, data.quantity)
-            .finally(() => close())
+        addDigitalCurrency(activeNode!.shortHash, data.holder, data.quantity);
+        close();
     };
 
-    const { activeNode, setActiveNode, nodes } = useVnodeContext();
+    const { activeNode, nodes } = useVnodeContext();
 
     const cpartyMenuItems = nodes.filter(it => it.x500Name != activeNode?.x500Name).map( it =>
         <MenuItem key={it.x500Name} value={it.x500Name}>{it.x500Name}</MenuItem>
