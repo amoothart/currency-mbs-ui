@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridActionsCellItem, GridColDef, GridRenderCellParams, GridRowId } from '@mui/x-data-grid';
 import { Box, Button, Chip } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import { DigitalCurrencyDTO, getDigitalCurrencies } from '../services/digitalCurrenciesService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
@@ -13,6 +14,7 @@ export default function DigitalCurrencyGrid() {
   const [digitalCurrenciesData, setDigitalCurrenciesData] = useState<DigitalCurrencyDTO[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { activeNode } = useVnodeContext();
+  const [open, setOpen] = useState(false);
 
   //reload table with animation after vNode change
   useEffect( () => {
@@ -67,11 +69,28 @@ export default function DigitalCurrencyGrid() {
     );
   }
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box mt={2} >
-      <Button variant="outlined">
-        Issue new Digital Currency
-      </Button>
+      <div>
+        <Button variant="outlined" onClick={() => setOpen(true)}>
+          Issue new Digital Currency
+        </Button>
+        {open && (
+            <Dialog open={open} onClose={handleClose}>
+              <DialogTitle>Issue Digital Currency</DialogTitle>
+              <DialogContent>
+                <p>This is the dialog content for issuing digital currency.</p>
+              </DialogContent>
+              <DialogActions>
+                <Button variant="outlined" onClick={handleClose}>Close</Button>
+              </DialogActions>
+            </Dialog>
+        )}
+      </div>
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
         Digital Currencies
       </Typography>

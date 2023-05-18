@@ -21,23 +21,26 @@ function Copyright() {
   );
 }
 
-export default function App() {
-
-    const [activeGridView, setActiveGridView] = useState('gridView1');
+const App = () => {
+    const [activeGridView, setActiveGridView] = useState("digitalCurrencyGrid");
 
     const handleGridViewSwitch = () => {
-        setActiveGridView(activeGridView === 'gridView1' ? 'gridView2' : 'gridView1');
+        setActiveGridView(activeGridView === 'digitalCurrencyGrid' ? 'mortgageGrid' : 'digitalCurrencyGrid');
     };
 
     return (
-    <Container maxWidth="md">
-      <VNodeContext>
-          <Button variant="outlined" onClick={ handleGridViewSwitch }>
-              Switch View
-          </Button>
-          {activeGridView === 'gridView1' ? <DigitalCurrencyGrid /> : <MortgageGrid />}
-      </VNodeContext>
-      <Copyright />
-    </Container>
-  );
-}
+        <div>
+            <VNodeContext>
+                <Container maxWidth="md">
+                    <Button variant="outlined" onClick={ handleGridViewSwitch }>
+                        Switch View
+                    </Button>
+                    {activeGridView === 'digitalCurrencyGrid' ? <DigitalCurrencyGrid /> : <MortgageGrid />}
+                </Container>
+            </VNodeContext>
+            <Copyright />
+        </div>
+    );
+};
+
+export default App;
