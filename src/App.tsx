@@ -1,12 +1,11 @@
 import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import {Button, Container, Typography} from "@mui/material";
 import { VNodeContext } from './components/VNodeContext';
 import { OpenAPI } from './services/generatedCordaApi';
 import DigitalCurrencyGrid from './components/DigitalCurrencyGrid';
-import {useState} from "react";
 import MortgageGrid from "./components/MortgageGrid";
-import {Button} from "@mui/material";
+import BundleGrid from "./components/BundleGrid";
+import {useState} from "react";
 
 OpenAPI.BASE = process.env.REACT_APP_CORDA_REST_URL!;
 OpenAPI.USERNAME = process.env.REACT_APP_CORDA_REST_USER!;
@@ -24,18 +23,22 @@ function Copyright() {
 const App = () => {
     const [activeGridView, setActiveGridView] = useState("digitalCurrencyGrid");
 
-    const handleGridViewSwitch = () => {
-        setActiveGridView(activeGridView === 'digitalCurrencyGrid' ? 'mortgageGrid' : 'digitalCurrencyGrid');
-    };
-
     return (
         <div>
             <VNodeContext>
                 <Container maxWidth="md">
-                    <Button variant="outlined" onClick={ handleGridViewSwitch }>
-                        Switch View
+                    <Button variant="outlined" onClick={() => setActiveGridView("digitalCurrencyGrid")}>
+                        Digital Currency View
                     </Button>
-                    {activeGridView === 'digitalCurrencyGrid' ? <DigitalCurrencyGrid /> : <MortgageGrid />}
+                    <Button variant="outlined" onClick={() => setActiveGridView("mortgageGrid")}>
+                        Mortgage View
+                    </Button>
+                    <Button variant="outlined" onClick={() => setActiveGridView("bundleGrid")}>
+                        Bundle View
+                    </Button>
+                    { activeGridView == "digitalCurrencyGrid" && <DigitalCurrencyGrid /> }
+                    { activeGridView == "mortgageGrid" && <MortgageGrid /> }
+                    { activeGridView == "bundleGrid" && <BundleGrid /> }
                 </Container>
             </VNodeContext>
             <Copyright />
