@@ -1,4 +1,4 @@
 export type { BundleDTO } from './models/BundleDTO';
 export { getBundles } from './getBundles';
-// export { addBundle } from './addBundle';
+export { createBundle } from './createBundle';
 // export { sellBundle } from './sellBundle';

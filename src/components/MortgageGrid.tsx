@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { DataGrid, GridActionsCellItem, GridColDef } from '@mui/x-data-grid';
-import { Box, Chip } from '@mui/material';
-import { MortgageDTO, getMortgages } from '../services/mortgageService';
+import { DataGrid, GridActionsCellItem, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
+import { Box, Button, Chip } from '@mui/material';
+import {MortgageDTO, getMortgages, addMortgage} from '../services/mortgageService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
 import EditIcon from '@mui/icons-material/Edit';
 import IssueMortgageDialog from "./IssueMortgageDialog";
 import SellMortgageDialog from "./SellMortgageDialog";
+import {createBundle} from "../services/bundleService";
 
 export default function MortgageGrid() {
 
@@ -15,6 +16,8 @@ export default function MortgageGrid() {
   const [isLoading, setIsLoading] = useState(true);
   const { activeNode } = useVnodeContext();
   const [open, setOpen] = useState(false);
+  const [checkboxSelection, setCheckboxSelection] = React.useState(true);
+  const [rowSelectionModel, setRowSelectionModel] = React.useState<GridRowSelectionModel>([]);
 
   //reload table with animation after vNode change
   useEffect( () => {
@@ -83,20 +86,33 @@ export default function MortgageGrid() {
     setOpen(false);
   };
 
+  const handleClick = () => {
+    const mortgageIds = rowSelectionModel.map((row) => { return row.toString()})
+    console.log(mortgageIds)
+    createBundle(activeNode!.shortHash, mortgageIds)
+  };
+
   return (
     <Box mt={2} >
       <IssueMortgageDialog/>
+      <Button variant="outlined" onClick={handleClick} sx={{ marginTop: 2}}>
+        Bundle Mortgages into an MBS
+      </Button>
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
         Mortgages
       </Typography>
       <Box mt={2} style={{ width: '100%' }}>
-        <DataGrid disableRowSelectionOnClick
-                  slots={{ noRowsOverlay: GridNoRowsOverlay }}
+        <DataGrid slots={{ noRowsOverlay: GridNoRowsOverlay }}
                   loading={isLoading} autoHeight
                   rows={mortgageData}
                   columns={mortgageGridColumnDef}
                   getRowId={(t) => t.mortgageId}
-                  />
+                  checkboxSelection={checkboxSelection} {...mortgageData}
+                  onRowSelectionModelChange={(newRowSelectionModel) => {
+                    setRowSelectionModel(newRowSelectionModel);
+                    console.log(rowSelectionModel);
+                  }}
+                />
       </Box>
     </Box>
   );
