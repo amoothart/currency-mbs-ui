@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { DataGrid, GridActionsCellItem, GridColDef } from '@mui/x-data-grid';
-import { Box, Chip } from '@mui/material';
+import { Box } from '@mui/material';
 import { BundleDTO, getBundles } from '../services/bundleService';
 import { useVnodeContext } from './VNodeContext';
 import { GridNoRowsOverlay } from './GridNoRowsOverlay';
 import Typography from '@mui/material/Typography';
 import PageviewIcon from '@mui/icons-material/Pageview';
 import EditIcon from '@mui/icons-material/Edit';
-// import IssueBundleDialog from "./IssueBundleDialog";
-// import SellBundleDialog from "./SellBundleDialog";
+import SellMortgageDialog from "./SellMortgageDialog";
+import ViewMortgagesDialog from "./ViewMortgagesDialog";
 
 export default function BundleGrid() {
 
@@ -45,11 +45,7 @@ export default function BundleGrid() {
       getActions: (params) => {
         const bundleId = params.row.bundleId;
         return [
-          <GridActionsCellItem
-              icon={<PageviewIcon />}
-              label="View"
-              onClick={ () => alert('Not implemented') }
-          />,
+          <ViewMortgagesDialog bundleId={bundleId}/>,
           <GridActionsCellItem
               icon={<EditIcon />}
               label="Edit"
@@ -70,7 +66,6 @@ export default function BundleGrid() {
 
   return (
     <Box mt={2} >
-      {/*<IssueBundleDialog/>*/}
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
         Bundles
       </Typography>
@@ -88,9 +83,6 @@ export default function BundleGrid() {
 
   async function refreshBundle() {
     const bundles = activeNode ? await getBundles(activeNode!.shortHash) : [];
-    const bundlesWithIds: BundleDTO[] = bundles.map((obj, index) => {
-      return { ...obj };
-    });
-    setBundleData(bundlesWithIds);
+    setBundleData(bundles);
   }
 }

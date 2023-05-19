@@ -119,9 +119,6 @@ export default function MortgageGrid() {
 
   async function refreshMortgage() {
     const mortgages = activeNode ? await getMortgages(activeNode!.shortHash) : [];
-    const mortgagesWithIds: MortgageDTO[] = mortgages.map((obj, index) => {
-      return { ...obj };
-    });
-    setMortgageData(mortgagesWithIds);
+    setMortgageData(mortgages);
   }
 }
