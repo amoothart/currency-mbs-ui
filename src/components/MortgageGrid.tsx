@@ -51,7 +51,7 @@ export default function MortgageGrid() {
     },
     { field: 'listingDetails', headerName: 'Listing Details', minWidth: 120, flex: 1, },
     { field: 'bundled', headerName: 'Bundled?', minWidth: 120, flex: 1,
-      valueGetter: (params) => params.value == "true" ? "Yes" : "No"
+      valueGetter: (params) => params.value ? "Yes" : "No"
     },
     { field: 'actions', type: 'actions', headerName: 'Actions', minWidth: 80, flex: 1,
       getActions: (params) => {
