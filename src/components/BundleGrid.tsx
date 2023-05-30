@@ -67,7 +67,7 @@ export default function BundleGrid() {
   return (
     <Box mt={2} >
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
-        Bundles
+        Mortgage Backed Securities
       </Typography>
       <Box mt={2} style={{ width: '100%' }}>
         <DataGrid disableRowSelectionOnClick

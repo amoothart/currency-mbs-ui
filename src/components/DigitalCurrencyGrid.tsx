@@ -77,7 +77,7 @@ export default function DigitalCurrencyGrid() {
     <Box mt={2} >
       <IssueDigitalCurrencyDialog/>
       <Typography variant="h4" component="h1" gutterBottom sx={{ paddingTop: '1rem' }}>
-        Digital Currencies
+        Digital Currency Token Balances
       </Typography>
       <Box mt={2} style={{ width: '100%' }}>
         <DataGrid disableRowSelectionOnClick slots={{ noRowsOverlay: GridNoRowsOverlay }} loading={isLoading} autoHeight rows={digitalCurrenciesData} columns={digitalCurrenciesGridColumnDef} getRowId={(t) => t.digitalCurrencyId} />

@@ -57,7 +57,7 @@ const MortgageForm = ({mortgageId = ""}) => {
                                 To sell a mortgage to another bank, please enter details below.
                             </DialogContentText>
                             <FormControl fullWidth>
-                                <InputLabel id="cparty-select-label">Owner</InputLabel>
+                                <InputLabel id="cparty-select-label">Buyer</InputLabel>
                                 <Controller
                                     render={ ( {field}) => (
                                         <Select {...field}

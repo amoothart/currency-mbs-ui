@@ -35,12 +35,6 @@ const ViewMortgagesDialog = ({bundleId = ""}) => {
         }, [activeNode]
     );
 
-    //reload table without animation every 5 secs
-    // useEffect(() => {
-    //     debugger
-    //     return;
-    // }, [mortgageData]);
-
     // row formatting
     const mortgageGridColumnDef: GridColDef[] = [
         { field: 'mortgageId', headerName: 'Mortgage Id', minWidth: 80, flex: 1, },
@@ -82,8 +76,8 @@ const ViewMortgagesDialog = ({bundleId = ""}) => {
                 label="View Mortgages"
                 onClick={() => setOpen(true)}/>
             {open && (
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Bundled Mortgages</DialogTitle>
+                <Dialog open={open} onClose={handleClose} maxWidth="lg">
+                    <DialogTitle>Included Mortgages</DialogTitle>
                     <DialogContent>
                         <DialogContentText mb={3}>
                             Mortgages included in the bundle:
