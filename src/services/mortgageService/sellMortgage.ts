@@ -1,7 +1,7 @@
 import { callFlowSync } from '../niceCordaApi';
 import { MortgageDTO } from './models/MortgageDTO';
 
-const flowClassName = 'com.r3.developers.csdetemplate.digitalcurrency.workflows.SellMortgageFlow';
+const flowClassName = 'com.r3.developers.csdetemplate.digitalcurrency.workflows.SellBondFlow';
 
 export const sellMortgage = async (holdingIdentityShorthash: string,
                                   mortgageIds: string[],
